@@ -2,7 +2,7 @@
 from google import genai
 import json
 
-client = genai.Client(api_key=("AIzaSyB0Lencdlk1u348AKN59Q3bDtFRzk2Y1nc"))
+client = genai.Client(api_key=)
 def Ai_Model(prompt,user_data):
     json_userdata=json.dumps(user_data)
     response = client.models.generate_content(
@@ -11,4 +11,5 @@ def Ai_Model(prompt,user_data):
 )
     
     return response.text
+
 
