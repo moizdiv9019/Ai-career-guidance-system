@@ -65,3 +65,35 @@ def Career_recommedations(data):
                    if st.button(f"Generate Roadmap", key=f"btn_{i}", use_container_width=True):
                        user_selected_career=data[i]
        return user_selected_career
+
+
+
+def Roadmap_display(roadmap):
+
+    st.header("🚀 Career Guidance: 6-months Roadmap")
+    
+    for month_data in roadmap:
+        
+
+        st.header(f"Month {month_data['month']}: {month_data['focus']}")
+        
+        
+        for week in month_data['weeks']:
+            with st.expander(f"📅 Week {week['week_number']}: {week['week_title']}"):
+                
+                st.subheader("Learning Objectives")
+                
+
+                cols = st.columns(len(week['learning_objectives']) // 3 + 1)
+                for i, obj in enumerate(week['learning_objectives']):
+                    cols[i % len(cols)].markdown(f"- {obj}")
+    
+                st.markdown("---")
+                
+               
+                st.info(f"🛠️ **Tools:** {', '.join(week['tools'])}")
+                st.success(f"🎯 **Practice Task:** {week['practice_task']}")
+    
+    st.sidebar.success("Roadmap Loaded Successfully!")
+    
+
