@@ -125,4 +125,26 @@ Do NOT include:
 - Motivational quotes
 - Long theory explanations
 
+output structure:
+ output must be in python list of dictionary
+ where every dictionary have months and weeks as key and value as it contains
+
+ 
+ example [
+  {
+    "month": 1,
+    "focus": "Title of Month Focus",
+    "weeks": [
+      {
+        "week_number": 1,
+        "week_title": "String",
+        "learning_objectives": ["bullet 1", "bullet 2"],
+        "tools": ["tool 1", "tool 2"],
+        "practice_task": "Description of project/task"
+      },
+      # ... weeks 2-4
+    ]
+  },
+  # ... months 2-6
+]
    """
