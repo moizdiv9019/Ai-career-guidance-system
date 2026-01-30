@@ -1,12 +1,19 @@
 # An ai model we are using it by API 
 from google import genai
+import json
 
-client = genai.Client(api_key=("AIzaSyBC0Rh5C4LQU9SbJXRrVmmzAA6AC0vbagc"))
 
-def Ai_Model(prompt,user_data):
+def Ai_Model(prompt,user_data,api):
+ try:
+    client = genai.Client(api_key=api)
+    json_userdata=json.dumps(user_data)
     response = client.models.generate_content(
     model="gemini-3-flash-preview",
-    contents=[prompt,user_data], 
+    contents=[prompt,json_userdata]
 )
+ except Exception:
+    return -1
+ else:
     return response.text
+
 
