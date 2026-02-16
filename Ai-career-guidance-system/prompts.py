@@ -6,8 +6,8 @@ education level
 skills
 intrest
 etc 
-based-on that
-Your Task:
+
+based-on that Your Task:
 
 Analyze the user profile deeply and suggest EXACTLY 3 career paths that:
 
@@ -54,6 +54,7 @@ Each dictionary MUST contain a career_name key
 No text outside the output structure
 
 STRICT OUTPUT FORMAT (follow exactly):
+in json format 
 
 [
 {
@@ -77,15 +78,29 @@ STRICT OUTPUT FORMAT (follow exactly):
 "future_scope": "One-line scope or market demand",
 "skills_to_learn": ["Skill 1"]
 }
-]"""
+]
+
+STRICT RULES (CRITICAL):
+1. Output MUST be a single raw JSON array of 3 objects.
+2. DO NOT use markdown code blocks (no ```json or ```).
+3. DO NOT include any introductory text, pleasantries, or closing remarks.
+4. Start your response with '[' and end it with ']'.
+5. Ensure all keys and string values use DOUBLE QUOTES (").
+6. The output must be directly parsable by json.loads() in Python.
 
 
 
 
-prompt_2="""You are an expert Career Roadmap Generator and Industry Mentor.
 
-Your task is to generate a highly structured, practical, and job-ready
-6-MONTH STEP-BY-STEP LEARNING ROADMAP for a given career path.
+"""
+
+
+
+
+
+prompt_2="""You are an expert Industry Mentor for {target_career}. 
+Your task is to generate a 6-month roadmap SPECIFICALLY for becoming a {target_career}..
+
 
 The roadmap must be beginner-friendly but end at industry/job-ready level.
      
@@ -128,9 +143,25 @@ Do NOT include:
 output structure:
  output must be in python list of dictionary
  where every dictionary have months and weeks as key and value as it contains
+ only just the list of dictionary
+ where every dictionary have months and weeks as key and value as it contains no any thing like pyhton 
 
+ STRICT RULES (CRITICAL):
+1. Output MUST be a single raw JSON array of 3 objects.
+2. DO NOT use markdown code blocks (no ```json or ```).
+3. DO NOT include any introductory text, pleasantries, or closing remarks.
+4. Start your response with '[' and end it with ']'.
+5. Ensure all keys and string values use DOUBLE QUOTES (").
+6. The output must be directly parsable by json.loads() in Python.
+7. Don't return the career path wich i provide to you 
+5.DO NOT mention Python, SQL, or Data Science unless the career is specifically in Tech.
+
+CRITICAL NEGATIVE CONSTRAINT:
+Do not return any information about the career itself, salary, or job titles. Begin the array immediately with Month 1.
  
- example [
+ example:
+
+ roadmap=[
   {
     "month": 1,
     "focus": "Title of Month Focus",
